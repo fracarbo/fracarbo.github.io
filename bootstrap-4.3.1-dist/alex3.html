@@ -1,12 +1,10 @@
 
 <!doctype html>
-<html lang="en">
+<html lang="it">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Ale__yt</title>
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -53,16 +51,11 @@
       }
 
       .Contactcards {
-        position: relative;
-        left: 15%;
         user-select: none;
         transform: translate3d(0, 0, 0);
         transform-style: preserve-3d;
       }
       .Contactcards:after {
-        position: absolute;
-        bottom: -27px;
-        left: 5%;
         content: '';
         width: 65%;
         height: 10px;
@@ -71,7 +64,7 @@
       }
       .Contactcards > div {
         position: relative;
-        width: 250px;
+        width: 180px;
         height: 125px;
         border-radius: 12px;
         color: #fff;
@@ -176,27 +169,17 @@
   </head>
   <body>
 
-
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark main-gradient-bg">
-      <a class="navbar-brand" href="#">ale__yt</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#lavori">Lavori</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contatti">Contatti</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <!--Nabvar-->
+    <div class="w3-bar w3-text-white main-gradient-bg">
+      <a href="#" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="#lavori" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Lavori</a>
+      <a href="#contatti" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contatti</a>
+      <a href="javascript:void(0)" class="w3-hover-white w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="myFunction()">&#9776;</a>
+    </div>
+    <div id="demo" class=" w3-text-white w3-bar-block main-gradient-bg w3-hide w3-hide-large w3-hide-medium">
+      <a href="#lavori" class="w3-bar-item w3-button w3-hover-white">Lavori</a>
+      <a href="#contatti" class="w3-bar-item w3-button w3-hover-white">Contatti</a>
+    </div>
 
     <!--Header-->
     <div class=header>
@@ -294,10 +277,20 @@
 
     <!--Footer-->
     <footer class="w3-center main-gradient-bg w3-padding-64">
-      <h6>Powered by <a href="https://fracarbo.github.io" target="blank">fra_carbo</a></h6>
+      <h6>Powered by <a href="https://fracarbo.github.io" target="blank" class="w3-hover-text-white">fra_carbo</a></h6>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("demo");
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else {
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+    </script>
   </body>
 </html>
