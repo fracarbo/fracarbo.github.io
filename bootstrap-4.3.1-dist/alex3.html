@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
 
-
+      body{
+        font-family: 'Poppins', cursive;
+      }
       h1, h2, h3, h4, h5, h6{
         font-family: 'Bungee', cursive;
         text-transform: uppercase;
@@ -42,16 +44,12 @@
          text-align: center;
          font-size: 10vw;
          font-family: 'Bungee Shade', cursive;
-         background: -webkit-linear-gradient(#12c2e9, #c471ed, #f64f59);
-         -webkit-background-clip: text;
-         -webkit-text-fill-color: transparent;
       }
 
       .navbar-brand{
         font-family: 'Bungee', cursive;
         font-size: 20px;
       }
-
       .navbar-toggler{
         background: #c471ed; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         border: none;
@@ -59,7 +57,7 @@
 
       .Contactcards {
         position: relative;
-        left: 5%;
+        left: 15%;
         user-select: none;
         transform: translate3d(0, 0, 0);
         transform-style: preserve-3d;
@@ -76,8 +74,8 @@
       }
       .Contactcards > div {
         position: relative;
-        width: 280px;
-        height: 140px;
+        width: 250px;
+        height: 125px;
         border-radius: 12px;
         color: #fff;
         transform: rotateX(45deg) rotateY(-15deg) rotate(45deg);
@@ -95,7 +93,6 @@
         background-image: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.1), rgba(255,255,255,0) 80%);
         transform: translateX(-100%);
       }
-
       .Contactcards > div h3 {
         position: absolute;
         bottom: 28px;
@@ -130,7 +127,6 @@
         background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       }
-
       .Contactcards > div:hover {
         transform: rotateX(30deg) rotateY(-15deg) rotate(30deg) translate(-25px, 50px);
       }
@@ -138,12 +134,41 @@
         transform: translateX(100%);
         transition: all 1.2s ease-in-out;
       }
-
       .Contactcards > div a:hover {
         color: white;
       }
 
+      .box{
+        transition:.2s all;
+      }
+      .box-wrap:hover .box{
+        filter:blur(3px);
+        opacity:.5;
+        transform: scale(.98);
+        box-shadow:none;
+      }
+      .box-wrap:hover .box:hover{
+        transform:scale(1);
+        filter:blur(0px);
+        opacity:1;
+        box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+      }
 
+      .w3-jumbo{
+        font-size: 200px!important;
+      }
+
+      .main-gradient{
+        background: -webkit-linear-gradient(45deg, #12c2e9, #c471ed, #f64f59);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .dark{
+        background: #232526;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      }
     </style>
   </head>
   <body>
@@ -170,45 +195,97 @@
       </div>
     </nav>
 
+    <!--Header-->
     <div class=header>
       <!--Scritta grande-->
-      <a href="" target="blank" class="titolo">ale__yt</a>
+      <p class="titolo main-gradient">ale__yt</p>
     </div>
 
+    <!--Presentazione-->
     <div class="w3-row-padding w3-padding-64 w3-container  w3-light-grey">
-  <div class="w3-content">
-    <div class="w3-twothird">
-      <h1>Riguardo me</h1>
-      <h5 class="w3-padding-32"></h5>
-      <p class="w3-text-grey">Ciao a tutti, sono un ragazzo di 14 anni, frequento il secondo anno del corso di informatica di un istituto tecnico industriale e il videomaking è la mia passione da più di tre anni. In questo sito web troverete recensioni di componenti per pc come: schede video, processori, raffreddamenti (sopratutto liquidi), mouse, tastiere e molto altro. Spero di poter realizzare anche le mie magliette e i miei stickers, sto colloborando con diversi gruppi per sponsor e quant'altro. Contattatemi tramite il gruppo telegram per collaborazioni e altro. Il link è in fondo alla pagina, che aspetti?!</p>
-    </div>
-
-    <div class="w3-third w3-center">
-      <h3>Contatti</h3>
-      <br>
-      <div class="Contactcards">
-        <div class="instagram">
-          <a target="blank" href="https://www.instagram.com/ale__19/">
-            <h3>Instagram</h3>
-            <span>@ale__19</span>
-          </a>
+      <div class="w3-content">
+        <div class="w3-twothird">
+          <h1 class="main-gradient">Riguardo me</h1>
+          <h5 class="w3-padding-32"></h5>
+          <p class="w3-text-grey">Ciao a tutti, sono un ragazzo di 14 anni, frequento il secondo anno del corso di informatica di un istituto tecnico industriale e il videomaking è la mia passione da più di tre anni. In questo sito web troverete recensioni di componenti per pc come: schede video, processori, raffreddamenti (sopratutto liquidi), mouse, tastiere e molto altro. Spero di poter realizzare anche le mie magliette e i miei stickers, sto colloborando con diversi gruppi per sponsor e quant'altro. Contattatemi tramite il gruppo telegram per collaborazioni e altro. Il link è in fondo alla pagina, che aspetti?!</p>
         </div>
-        <div class="telegram">
-          <a target="blank" href="https://t.me/joinchat/GN1czhbcF3hdTuhBIc1TPQ">
-            <h3>Telegram</h3>
-            <span>Gruppo Telegram</span>
-          </a>
-        </div>
-        <div class="email">
-          <a href="mailto:alexp.caruso@gmail.com">
-            <h3>E-mail</h3>
-            <span>alexp.caruso@gmail.com</span>
-          </a>
+        <div class="w3-third w3-center">
+          <i class="fa fa-user w3-padding-64 w3-jumbo main-gradient"></i>
         </div>
       </div>
     </div>
-  </div>
-</div>
+
+    <!--Lavori-->
+    <div class="w3-row-padding w3-padding-64 w3-container  w3-white">
+      <div class="w3-content">
+        <div class="w3-center">
+          <h1 class="main-gradient">I miei lavori</h1>
+        </div>
+
+          <div class="w3-row-padding w3-margin-top box-wrap">
+            <div class="w3-third">
+              <div class="w3-card box">
+                <img src="sfondo.jpg" style="width:100%">
+                <div class="w3-container dark">
+                  <h5 class="main-gradient">Manarola</h5>
+                </div>
+              </div>
+            </div>
+
+            <div class="w3-third box">
+              <div class="w3-card">
+                <img src="sfondo.jpg" style="width:100%">
+                <div class="w3-container dark">
+                  <h5 class="main-gradient">Corniglia</h5>
+                </div>
+              </div>
+            </div>
+
+            <div class="w3-third box">
+              <div class="w3-card">
+                <img src="sfondo.jpg" style="width:100%">
+                <div class="w3-container dark">
+                  <h5 class="main-gradient">Riomaggiore</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <!--Contatti-->
+    <div class="w3-row-padding w3-padding-64 w3-container dark">
+      <div class="w3-content">
+        <div class="w3-twothird">
+          <h1 class="main-gradient">Contattami</h1>
+          <h5 class="w3-padding-32"></h5>
+          <p class="w3-text-white">Contattami sui social o per email per realizzare il tuo video!</p>
+        </div>
+      </div>
+
+      <div class="w3-third w3-center">
+        <div class="Contactcards">
+          <div class="instagram">
+            <a target="blank" href="https://www.instagram.com/ale__19/">
+              <h3><i class="fa fa-instagram w3-xxlarge"></i></h3>
+              <span>@ale__19</span>
+            </a>
+          </div>
+          <div class="telegram">
+            <a target="blank" href="https://t.me/joinchat/GN1czhbcF3hdTuhBIc1TPQ">
+              <h3><i class="fa fa-telegram w3-xxlarge"></i></h3>
+              <span>Gruppo Telegram</span>
+            </a>
+          </div>
+          <div class="email">
+            <a href="mailto:alexp.caruso@gmail.com">
+              <h3><i class="fa fa-envelope w3-xxlarge"></i></h3>
+              <span>alexp.caruso@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
