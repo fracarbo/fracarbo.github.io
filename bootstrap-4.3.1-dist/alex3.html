@@ -24,13 +24,6 @@
         text-transform: uppercase;
       }
 
-      .navbar{
-        /*Sfondo a gradiente*/
-        background: #12c2e9;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-      }
-
 
       .header {
       	width: 100%;
@@ -173,13 +166,19 @@
         background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       }
+
+      .main-gradient-bg{
+        background: #12c2e9;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      }
     </style>
   </head>
   <body>
 
 
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark main-gradient-bg">
       <a class="navbar-brand" href="#">ale__yt</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -292,6 +291,11 @@
         </div>
       </div>
     </div>
+
+    <!--Footer-->
+    <footer class="w3-center main-gradient-bg w3-padding-64">
+      <h6>Powered by <a href="https://fracarbo.github.io" target="blank">fra_carbo</a></h6>
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
