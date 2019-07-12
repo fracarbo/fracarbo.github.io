@@ -41,13 +41,9 @@
          font-family: 'Bungee Shade', cursive;
       }
 
-      .navbar-brand{
+      .w3-bar{
         font-family: 'Bungee', cursive;
-        font-size: 20px;
-      }
-      .navbar-toggler{
-        background: #c471ed; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        border: none;
+        font-size: 16px;
       }
 
       .Contactcards {
@@ -283,6 +279,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>
+
+      //Apre e chiude la navar
       function myFunction() {
         var x = document.getElementById("demo");
         if (x.className.indexOf("w3-show") == -1) {
@@ -290,6 +288,19 @@
         } else {
           x.className = x.className.replace(" w3-show", "");
         }
+      }
+
+      //Nasconde e mostra la navbar allo scroll
+      // Nasconde la navbar allo scroll
+      var prevScrollpos = window.pageYOffset;
+      window.onscroll = function(menu) {
+      var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+          document.getElementById("navbar").style.top = "0";
+        } else {
+          document.getElementById("navbar").style.top = "-50px";
+        }
+        prevScrollpos = currentScrollPos;
       }
     </script>
   </body>
