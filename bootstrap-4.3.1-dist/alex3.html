@@ -4,6 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Ale__yt official website">
+    <meta name="keywords" content="video, photo, editing, Alex, Caruso">
+    <meta name="author" content="Francesco Carbonetto">
     <title>Ale__yt</title>
     <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -17,7 +20,7 @@
       body{
         font-family: 'Poppins', cursive;
       }
-      h1, h2, h3, h4, h5, h6{
+      h1, h2, h3, h4, h5, h6, .w3-bar-item{
         font-family: 'Bungee', cursive;
         text-transform: uppercase;
       }
@@ -39,11 +42,6 @@
          text-align: center;
          font-size: 10vw;
          font-family: 'Bungee Shade', cursive;
-      }
-
-      .w3-bar{
-        font-family: 'Bungee', cursive;
-        font-size: 16px;
       }
 
       .Contactcards {
@@ -166,15 +164,17 @@
   <body>
 
     <!--Nabvar-->
-    <div class="w3-bar w3-text-white main-gradient-bg">
-      <a href="#" class="w3-bar-item w3-button w3-hover-white">Home</a>
-      <a href="#lavori" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Lavori</a>
-      <a href="#contatti" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contatti</a>
-      <a href="javascript:void(0)" class="w3-hover-white w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="myFunction()">&#9776;</a>
-    </div>
-    <div id="demo" class=" w3-text-white w3-bar-block main-gradient-bg w3-hide w3-hide-large w3-hide-medium">
-      <a href="#lavori" class="w3-bar-item w3-button w3-hover-white">Lavori</a>
-      <a href="#contatti" class="w3-bar-item w3-button w3-hover-white">Contatti</a>
+    <div class="w3-top">
+      <div class="w3-bar w3-text-white w3-card w3-left-align main-gradient-bg">
+        <a href="#" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-home"></i></a>
+        <a href="#lavori" class="w3-bar-item w3-button w3-hide-small w3-hover-white"><i class="fa fa-briefcase"></i></a>
+        <a href="#contatti" class="w3-bar-item w3-button w3-hide-small w3-hover-white"><i class="fa fa-address-card"></i></a>
+        <a href="javascript:void(0)" class="w3-hover-white w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="myFunction()">&#9776;</a>
+      </div>
+      <div id="demo" class="w3-text-white w3-bar-block main-gradient-bg w3-hide w3-hide-large w3-hide-medium">
+        <a href="#lavori" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-briefcase"></i> Lavori</a>
+        <a href="#contatti" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-address-card"></i> Contatti</a>
+      </div>
     </div>
 
     <!--Header-->
@@ -273,35 +273,22 @@
 
     <!--Footer-->
     <footer class="w3-center main-gradient-bg w3-padding-64">
-      <h6>Powered by <a href="https://fracarbo.github.io" target="blank" class="w3-hover-text-white">fra_carbo</a></h6>
+      <p>Powered by <a href="https://fracarbo.github.io" target="blank" class="w3-hover-text-white">fra_carbo</a></p>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>
 
-      //Apre e chiude la navar
-      function myFunction() {
-        var x = document.getElementById("demo");
-        if (x.className.indexOf("w3-show") == -1) {
-          x.className += " w3-show";
-        } else {
-          x.className = x.className.replace(" w3-show", "");
-        }
+    //Mostra e nasconde la navbar
+    function myFunction() {
+      var x = document.getElementById("demo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else {
+        x.className = x.className.replace(" w3-show", "");
       }
-
-      //Nasconde e mostra la navbar allo scroll
-      // Nasconde la navbar allo scroll
-      var prevScrollpos = window.pageYOffset;
-      window.onscroll = function(menu) {
-      var currentScrollPos = window.pageYOffset;
-        if (prevScrollpos > currentScrollPos) {
-          document.getElementById("navbar").style.top = "0";
-        } else {
-          document.getElementById("navbar").style.top = "-50px";
-        }
-        prevScrollpos = currentScrollPos;
-      }
+    }
     </script>
   </body>
 </html>
