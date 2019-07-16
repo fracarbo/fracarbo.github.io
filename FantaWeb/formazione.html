@@ -1,0 +1,703 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<title>FantaWeb | Formazione</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-green w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="ToggleMenu()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="home.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a href="classifica.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Classifica</a>
+    <a href="risultati.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Risultati</a>
+    <a href="formazione.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Formazione</a>
+    <a href="rose.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Rose</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="classifica.html" class="w3-bar-item w3-button w3-padding-large">Classifica</a>
+    <a href="risultati.html" class="w3-bar-item w3-button w3-padding-large">Risultati</a>
+    <a href="formazione.html" class="w3-bar-item w3-button w3-padding-large">Formazione</a>
+    <a href="rose.html" class="w3-bar-item w3-button w3-padding-large">Rose</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-green w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo">Formazione</h1>
+  <p class="w3-xlarge">Countdown</p>
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top w3-hover-white">Invia formazione</button>
+</header>
+
+
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-center">
+      <h1>Crea la tua formazione</h1>
+      <h5 class="w3-padding-32">Cerca i calciatori che voi nella tua squadra e aggigungili cliccand sul quadratino affianco.</h5>
+
+      <p class="w3-text-grey">Hai a disposizione un budget iniziale di #### crediti e devi comporre una squadra formata da # portieri, # difensori, # centrocampisti e # attaccanti. Quando hai finito clicca sul pulsante <strong>"copia"</strong>. Per ricominciare da capo basta ricaricare la pagina.</p>
+      <div class="w3-content">
+        <div class="w3-center">
+          <h1>La tua formazione</h1>
+          <div id="crediti_rimasti" class="w3-container"></div>
+          <div id="stampa_rosa" class="w3-container" onselectstart="return false;"></div>
+          <button onclick='Copia("stampa_rosa")'' id="copy" class="w3-button w3-black w3-padding-large w3-large w3-margin-top w3-hover-white">Copia</button>
+        </div>
+      </div>
+
+        <div class="w3-container">
+          <h2>Elenco calciatori</h2>
+          <input class="w3-input w3-border w3-padding" type="text" placeholder="Cerca un calciatore" id="myInput" onkeyup="Cerca()">
+          <table class="w3-table-all w3-margin-top" id="PlayerTable">
+<thead><tr><th>Squadra</th><th>Nome</th><th>Ruolo</th><th>Prezzo</th><th>Acquista</th></tr></thead><tbody>
+ <tr><td>sassuolo</td><td>Sernicola L.</td><td>D</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Kiyine S.</td><td>T (C)</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Fulignati A.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Capuano M.</td><td>D</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Alves B.</td><td>D</td><td>15</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Bremer G.</td><td>D</td><td>3</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Satalino G.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Boga J.</td><td>T (A)</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Matuidi B.</td><td>C</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Parolo M.</td><td>C</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Pussetto I.</td><td>T (A)</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Radovanovic I.</td><td>C</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Provedel I.</td><td>P</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Krunic R.</td><td>C</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Patric P.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Helander F.</td><td>D</td><td>3</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Joao Pedro G.</td><td>T (C)</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Tanasijevic S.</td><td>D</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Goldaniga E.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Masiello A.</td><td>D</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Traore H.</td><td>T (C)</td><td>15</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Ghoulam F.</td><td>D</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Tomovic N.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Biabiany J.</td><td>T (C)</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Schafer A.</td><td>C</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Grubac S.</td><td>A</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Molinaro C.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Diks K.</td><td>D</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Burruchaga M.</td><td>C</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Cancelo J.</td><td>D</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Mattiello F.</td><td>D</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Viviano E.</td><td>P</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Bellanova R.</td><td>D</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Joao Mario -.</td><td>T (C)</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Di Maggio A.</td><td>D</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Insigne L.</td><td>T (A)</td><td>29</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Mbaye I.</td><td>D</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Nkoulou N.</td><td>D</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Badelj M.</td><td>C</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Pellissier S.</td><td>A</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Kean M.</td><td>A</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Romagnoli A.</td><td>D</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Toloi R.</td><td>D</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Criscito D.</td><td>D</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Bradaric F.</td><td>C</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Ionita A.</td><td>C</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Kulusevski D.</td><td>C</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Biraghi C.</td><td>D</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Bonaventura G.</td><td>C</td><td>23</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Saponara R.</td><td>T (C)</td><td>15</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Paloschi A.</td><td>A</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Farago P.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Palomino J.</td><td>D</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>De Maio S.</td><td>D</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Mancini G.</td><td>D</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Vlahovic D.</td><td>A</td><td>3</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Piazon L.</td><td>T (C)</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Troost-ekong W.</td><td>D</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Cuadrado J.</td><td>T (C)</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Praet D.</td><td>C</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Kouame C.</td><td>A</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Berisha E.</td><td>P</td><td>15</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Under C.</td><td>T (C)</td><td>23</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Defrel G.</td><td>A</td><td>21</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Di Lorenzo G.</td><td>D</td><td>20</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Iacobucci A.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Audero E.</td><td>P</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Beghetto A.</td><td>C</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Rossettini L.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Berenguer A.</td><td>T (C)</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Ghidotti S.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Wallace O.</td><td>D</td><td>2</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Behrami V.</td><td>C</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Montolivo R.</td><td>C</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Damascan V.</td><td>A</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Jankovic M.</td><td>T (C)</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Reina P.</td><td>P</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Calabria D.</td><td>D</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Verdi S.</td><td>T (A)</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Milinkovic S.</td><td>C</td><td>23</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Donnarumma A.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Bianda W.</td><td>D</td><td>2</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Schiappacasse N.</td><td>T (A)</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Lemos M.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Diousse A.</td><td>C</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Pinamonti A.</td><td>A</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Pellegrini L.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Ciano C.</td><td>T (A)</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Gabbiadini M.</td><td>A</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Juan Jesus G.</td><td>D</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Albiol R.</td><td>D</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Ibanez -.</td><td>D</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Oliva C.</td><td>C</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Quagliarella F.</td><td>A</td><td>46</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Danilo L.</td><td>D</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Simic S.</td><td>D</td><td>2</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Frey N.</td><td>D</td><td>3</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Neto P.</td><td>T (C)</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Baselli D.</td><td>C</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Matri A.</td><td>A</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Cristante B.</td><td>C</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Leris M.</td><td>T (A)</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Rigoni L.</td><td>C</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Diakhate A.</td><td>C</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Peeters D.</td><td>C</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Ekdal A.</td><td>C</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Riccardi A.</td><td>C</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Reca A.</td><td>D</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Brozovic M.</td><td>C</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Skorupski L.</td><td>P</td><td>15</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Fofana S.</td><td>C</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Ceravolo F.</td><td>A</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Gobbi M.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Hetemaj P.</td><td>C</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Krejci L.</td><td>T (C)</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Srna D.</td><td>D</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Rasmussen J.</td><td>D</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Perisan S.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Dickmann L.</td><td>D</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Leiva L.</td><td>C</td><td>15</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Murgia A.</td><td>C</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Poli A.</td><td>C</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Martinez L.</td><td>A</td><td>24</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Can E.</td><td>C</td><td>20</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Giaccherini E.</td><td>T (C)</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Lazovic D.</td><td>C</td><td>15</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Perisic I.</td><td>T (C)</td><td>24</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Izzo A.</td><td>D</td><td>22</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>La Gumina A.</td><td>A</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Cigarini L.</td><td>C</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Krajnc L.</td><td>D</td><td>3</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Lakicevic I.</td><td>D</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Pajac M.</td><td>D</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Cassata F.</td><td>C</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Romagna F.</td><td>D</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Rafael C.</td><td>P</td><td>2</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Dezi J.</td><td>C</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Gagliardini R.</td><td>C</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Gori M.</td><td>C</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Milenkovic N.</td><td>D</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Silvestre M.</td><td>D</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Sirigu S.</td><td>P</td><td>24</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Hancko D.</td><td>D</td><td>3</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Trotta M.</td><td>A</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Dragowski B.</td><td>P</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Nicolas A.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Duncan A.</td><td>C</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Nikolaou D.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Vodisek R.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Falcinelli D.</td><td>A</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Handanovic S.</td><td>P</td><td>21</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Sierralta F.</td><td>D</td><td>2</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Terracciano P.</td><td>P</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Paganini L.</td><td>T (C)</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Ranocchia A.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Rafael D.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Caicedo F.</td><td>A</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Caldara M.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Vrsaljko S.</td><td>D</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Alex Sandro L.</td><td>D</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Antenucci M.</td><td>A</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Palacio R.</td><td>T (A)</td><td>20</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Donsah G.</td><td>C</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Lasagna K.</td><td>A</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>De Roon M.</td><td>C</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Valzania L.</td><td>C</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Scozzarella M.</td><td>C</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Rosati A.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Thereau C.</td><td>T (A)</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Dambrosio D.</td><td>D</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Teodorczyk L.</td><td>A</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Siligardi L.</td><td>T (A)</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Piatek K.</td><td>A</td><td>32</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Opoku N.</td><td>D</td><td>3</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Benassi M.</td><td>C</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Fernandes E.</td><td>C</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Pasalic M.</td><td>C</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Laurini V.</td><td>D</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Castro L.</td><td>C</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Sepe L.</td><td>P</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Pucciarelli M.</td><td>A</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Marchetti F.</td><td>P</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Celar Z.</td><td>A</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Florenzi A.</td><td>D</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Asamoah K.</td><td>D</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>De Vrij S.</td><td>D</td><td>20</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Cesar B.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Deiola A.</td><td>C</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Dalessandro M.</td><td>T (C)</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Berni T.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Svanberg M.</td><td>C</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Romero C.</td><td>D</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Murru N.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Marcano I.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Zaza S.</td><td>A</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>El Shaarawy S.</td><td>T (A)</td><td>30</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Romulo O.</td><td>C</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Dimarco F.</td><td>D</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Sportiello M.</td><td>P</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Davordzie C.</td><td>A</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Bourabia M.</td><td>C</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Suso J.</td><td>T (A)</td><td>23</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Pandev G.</td><td>T (A)</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Luiz Felipe R.</td><td>D</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Mertens D.</td><td>T (A)</td><td>40</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Aina O.</td><td>D</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Musacchio M.</td><td>D</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Doratiotto R.</td><td>T (A)</td><td>2</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Scamacca G.</td><td>A</td><td>3</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Tonelli L.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Guerrieri G.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Muriel L.</td><td>A</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Maiello R.</td><td>C</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Peluso F.</td><td>D</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Norgaard C.</td><td>C</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Schiattarella P.</td><td>C</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Maksimovic N.</td><td>D</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Simeone G.</td><td>A</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Sala J.</td><td>D</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Pasqual M.</td><td>D</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Lukic S.</td><td>C</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Birsa V.</td><td>T (C)</td><td>15</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Castillejo S.</td><td>T (C)</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Rodriguez R.</td><td>D</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Ghiglione P.</td><td>D</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Gazzola M.</td><td>D</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Meggiorini R.</td><td>A</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Dijks M.</td><td>D</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Fazio F.</td><td>D</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Salvi M.</td><td>D</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Paz N.</td><td>D</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Candreva A.</td><td>T (C)</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Iago F.</td><td>T (A)</td><td>28</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Klavan R.</td><td>D</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Kluivert J.</td><td>T (A)</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Inglese R.</td><td>A</td><td>23</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Barba F.</td><td>D</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Khedira S.</td><td>C</td><td>23</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Brighi M.</td><td>C</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Hallfredsson E.</td><td>C</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Zeegelaar M.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Sammarco P.</td><td>C</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Politano M.</td><td>T (A)</td><td>22</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Dabo B.</td><td>C</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Ucan S.</td><td>T (C)</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Ichazo S.</td><td>P</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Veseli F.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Mirante A.</td><td>P</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Brazao G.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Sprocati M.</td><td>T (A)</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Karnezis O.</td><td>P</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Kolarov A.</td><td>D</td><td>24</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Ariaudo L.</td><td>D</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Gosens R.</td><td>D</td><td>15</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Zapata C.</td><td>D</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Bagheria F.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Correa C.</td><td>T (C)</td><td>22</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Grassi A.</td><td>C</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Ferraresi S.</td><td>D</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Errico A.</td><td>C</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Salamon B.</td><td>D</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Magnani G.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Colpani A.</td><td>C</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Lulic S.</td><td>C</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Cutrone P.</td><td>A</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Missiroli S.</td><td>C</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Olsen R.</td><td>P</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Valdifiori M.</td><td>C</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Perotti D.</td><td>T (C)</td><td>20</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Varnier M.</td><td>D</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Machin J.</td><td>C</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Conti A.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Djidji K.</td><td>D</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Luperto S.</td><td>D</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Strakosha T.</td><td>P</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Sandro R.</td><td>C</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Moretti E.</td><td>D</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Dellorco C.</td><td>D</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Montiel C.</td><td>T (C)</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Badu E.</td><td>C</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Aresti S.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Lerager L.</td><td>C</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Rugani D.</td><td>D</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Jandrei C.</td><td>P</td><td>2</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Colley O.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Lazzari M.</td><td>C</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Allan M.</td><td>C</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Depaoli F.</td><td>C</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Chiriches V.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Borini F.</td><td>T (C)</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Verde F.</td><td>A</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Samir C.</td><td>D</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Lirola P.</td><td>D</td><td>15</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Donnarumma G.</td><td>P</td><td>24</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Millico V.</td><td>A</td><td>2</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Schelotto E.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Radu I.</td><td>P</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Luis Alberto R.</td><td>T (A)</td><td>24</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Tavares J.</td><td>D</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Da Costa A.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Lukaku J.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Spinazzola L.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Chibsah R.</td><td>C</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Ingelsson S.</td><td>C</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Brignola E.</td><td>T (A)</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Ceppitelli L.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Katuma A.</td><td>C</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Ospina D.</td><td>P</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Pjanic M.</td><td>C</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Nikolic L.</td><td>T (C)</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Larsen J.</td><td>D</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Borja Valero I.</td><td>C</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Corbo G.</td><td>D</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Szczesny W.</td><td>P</td><td>23</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Djordjevic F.</td><td>A</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Adjapong C.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Felipe D.</td><td>D</td><td>15</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Miranda J.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Pinsoglio C.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Malcuit K.</td><td>D</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Mandzukic M.</td><td>A</td><td>26</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Tsadjout F.</td><td>A</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Floccari S.</td><td>A</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Pavoletti L.</td><td>A</td><td>31</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Rogerio O.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Abate I.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Sau M.</td><td>A</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Barreto E.</td><td>C</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Maietta D.</td><td>D</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Cionek T.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Ferrari G.</td><td>D</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Zukanovic E.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Callejon J.</td><td>T (A)</td><td>26</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Musso J.</td><td>P</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Oberlin D.</td><td>A</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Kessie F.</td><td>C</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Parigini V.</td><td>T (C)</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Ceccherini F.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Barak A.</td><td>C</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Gillekens J.</td><td>D</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Dionisi F.</td><td>A</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Bani M.</td><td>D</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Cerri A.</td><td>A</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Nainggolan R.</td><td>T (C)</td><td>23</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Marlon -.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Jankto J.</td><td>C</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Raspadori G.</td><td>A</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Durmisi R.</td><td>D</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Hiljemark O.</td><td>C</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Pulgar E.</td><td>C</td><td>21</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Edera S.</td><td>T (A)</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Acquah A.</td><td>C</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Leverbe M.</td><td>D</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Sanabria A.</td><td>A</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Nuytinck B.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Ter Avest H.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Laxalt D.</td><td>C</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Sansone N.</td><td>T (A)</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Barella N.</td><td>C</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Nicolussi Caviglia H.</td><td>C</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Vicari F.</td><td>D</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>De Rossi D.</td><td>C</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Proto S.</td><td>P</td><td>2</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Di Francesco F.</td><td>T (A)</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Djimsiti B.</td><td>D</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Salcedo E.</td><td>A</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Kucka J.</td><td>C</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Destro M.</td><td>A</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Dybala P.</td><td>T (A)</td><td>29</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Cataldi D.</td><td>C</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Vieira R.</td><td>C</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Fares M.</td><td>C</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Diawara A.</td><td>C</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Younes A.</td><td>T (C)</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Keita B.</td><td>T (A)</td><td>23</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Manolas K.</td><td>D</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Santander F.</td><td>A</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Koulibaly K.</td><td>D</td><td>22</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Lykogiannis C.</td><td>D</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Belotti A.</td><td>A</td><td>34</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Rossi F.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Fuzato D.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Frattali P.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Di Gennaro R.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Calhanoglu H.</td><td>T (C)</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Caceres M.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Dzeko E.</td><td>A</td><td>27</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Veloso M.</td><td>C</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Zapata D.</td><td>A</td><td>40</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Brighenti N.</td><td>D</td><td>3</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Farias D.</td><td>A</td><td>22</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Freuler R.</td><td>C</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Sturaro S.</td><td>C</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Strinic I.</td><td>D</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Lapadula G.</td><td>A</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Ilicic J.</td><td>T (A)</td><td>35</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Immobile C.</td><td>A</td><td>31</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Rincon T.</td><td>C</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Locatelli M.</td><td>C</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Ruiz F.</td><td>C</td><td>21</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Pezzella G.</td><td>D</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Ounas A.</td><td>T (A)</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Mandragora R.</td><td>C</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Ronaldo C.</td><td>A</td><td>52</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Dalmonte N.</td><td>T (A)</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Zaniolo N.</td><td>T (C)</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Colidio F.</td><td>A</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Juwara M.</td><td>T (A)</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Zielinski P.</td><td>C</td><td>23</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Meite S.</td><td>C</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Belec V.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>De Sciglio M.</td><td>D</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Costa F.</td><td>D</td><td>7</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Stijepovic O.</td><td>T (C)</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Pjaca M.</td><td>T (A)</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Pereira P.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Gerson S.</td><td>T (C)</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Graiciar M.</td><td>A</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Wilmot B.</td><td>C</td><td>3</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Gomez A.</td><td>T (A)</td><td>28</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Bertolacci A.</td><td>C</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Linetty K.</td><td>C</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Biraschi D.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Douglas Costa d.</td><td>T (C)</td><td>22</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Bonifazi K.</td><td>D</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Perin M.</td><td>P</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Babacar K.</td><td>A</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Hateboer H.</td><td>D</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Pisacane F.</td><td>D</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Seculin A.</td><td>P</td><td>2</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Barzagli A.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Mazzitelli L.</td><td>C</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Ansaldi C.</td><td>D</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Bernardeschi F.</td><td>T (C)</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Odgaard J.</td><td>A</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Skriniar M.</td><td>D</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Ramirez G.</td><td>T (C)</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Favilli A.</td><td>A</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Micin P.</td><td>T (A)</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Bereszynski B.</td><td>D</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Zampano F.</td><td>D</td><td>8</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Gervinho</td><td>T (A)</td><td>24</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Cragno A.</td><td>P</td><td>20</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Vecino M.</td><td>C</td><td>15</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Gunter K.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Vitor Hugo F.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Ferigra E.</td><td>D</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Veretout J.</td><td>C</td><td>15</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Radu S.</td><td>D</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Milik A.</td><td>A</td><td>30</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Bakayoko T.</td><td>C</td><td>15</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Ferrari A.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Sorrentino S.</td><td>P</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Regini V.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Lafont A.</td><td>P</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Polvani L.</td><td>D</td><td>2</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>De Silvestri L.</td><td>D</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Berisha V.</td><td>C</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Daga R.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Gasparini M.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Bessa D.</td><td>C</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Jordao B.</td><td>C</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Valoti M.</td><td>C</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Santurro A.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Padoin S.</td><td>C</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Bonucci L.</td><td>D</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Lyanco S.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Coric A.</td><td>C</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Ciofani D.</td><td>A</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Dalbert H.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Gaetano G.</td><td>T (A)</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Nzonzi S.</td><td>C</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Bastoni A.</td><td>D</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Biglia L.</td><td>C</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Barrow M.</td><td>A</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Bardi F.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Marusic A.</td><td>D</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Pessina M.</td><td>C</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Pezzella G.</td><td>D</td><td>3</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Petagna A.</td><td>A</td><td>29</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Cacciatore F.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Capezzi L.</td><td>C</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Bennacer I.</td><td>C</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Nagy A.</td><td>C</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Vignato E.</td><td>T (C)</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>cagliari</td><td>Despodov K.</td><td>T (A)</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Kurtic J.</td><td>C</td><td>22</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Icardi M.</td><td>A</td><td>31</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Stulac L.</td><td>C</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Orsolini R.</td><td>T (A)</td><td>26</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Calabresi A.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Karsdorp R.</td><td>D</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Soriano R.</td><td>C</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Gagliolo R.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Schick P.</td><td>A</td><td>15</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Stepinski M.</td><td>A</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Jaroszynski P.</td><td>D</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Padelli D.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Mirallas K.</td><td>T (A)</td><td>13</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>fiorentina</td><td>Chiesa F.</td><td>T (C)</td><td>25</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Gomis A.</td><td>P</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>torino</td><td>Adopo N.</td><td>C</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Valencia J.</td><td>T (C)</td><td>2</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Coccolo L.</td><td>D</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Chiellini G.</td><td>D</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>juventus</td><td>Bentancur R.</td><td>C</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Caprari G.</td><td>T (A)</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Mario Rui S.</td><td>D</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Bastos J.</td><td>D</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>bologna</td><td>Dzemaili B.</td><td>C</td><td>11</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Mauri J.</td><td>C</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Sensi S.</td><td>C</td><td>15</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Gollini P.</td><td>P</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Barilla A.</td><td>C</td><td>14</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Basta D.</td><td>D</td><td>4</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Rigoni N.</td><td>C</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Plizzari A.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Poluzzi G.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Semper A.</td><td>P</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Pegolo G.</td><td>P</td><td>3</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Djuricic F.</td><td>C</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Mchedlidze L.</td><td>A</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>parma</td><td>Iacoponi S.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>atalanta</td><td>Castagne T.</td><td>D</td><td>19</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Antonelli L.</td><td>D</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>Okaka S.</td><td>A</td><td>20</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Hysaj E.</td><td>D</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>chievo</td><td>Andreolli M.</td><td>D</td><td>3</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>milan</td><td>Paqueta L.</td><td>T (C)</td><td>17</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>inter</td><td>Cedric S.</td><td>D</td><td>9</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>genoa</td><td>Rolon E.</td><td>C</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Magnanelli F.</td><td>C</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Berardi D.</td><td>T (A)</td><td>24</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>napoli</td><td>Meret A.</td><td>P</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>spal</td><td>Simic L.</td><td>D</td><td>3</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Demiral M.</td><td>D</td><td>12</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>frosinone</td><td>Viviani F.</td><td>C</td><td>5</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>udinese</td><td>De Paul R.</td><td>T (C)</td><td>23</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>lazio</td><td>Acerbi F.</td><td>D</td><td>16</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Pastore J.</td><td>C</td><td>23</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Caputo F.</td><td>A</td><td>26</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sassuolo</td><td>Consigli A.</td><td>P</td><td>20</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>empoli</td><td>Perucchini F.</td><td>P</td><td>1</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Santon D.</td><td>D</td><td>6</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>sampdoria</td><td>Andersen J.</td><td>D</td><td>10</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+ <tr><td>roma</td><td>Pellegrini L.</td><td>C</td><td>18</td><td><input class="w3-check" type="checkbox" onclick="StampaRosa()"></td></tr>
+          </tbody></table>
+
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function ToggleMenu() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+//funzione per Cercare i giocatori
+function Cerca() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("PlayerTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+//funzione per stampare la rosa
+function StampaRosa() {
+  var table, tr, td, i, costo_tot=0, budget=1000;
+  document.getElementById("stampa_rosa").innerHTML = "";
+  table = document.getElementById("PlayerTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    var comprato = document.getElementsByClassName("w3-check")[i];
+    if (comprato.checked == true) {
+      var nome = tr[i+1].getElementsByTagName("td")[1].textContent;
+      var prezzo = tr[i+1].getElementsByTagName("td")[3].textContent;
+      costo_tot = costo_tot*1 + prezzo*1;
+      document.getElementById("stampa_rosa").innerHTML += " " + nome + " " + prezzo + "<br>";
+      document.getElementById("crediti_rimasti").innerHTML = "Crediti rimasti " + (budget - costo_tot);
+    }
+
+    if (costo_tot*1 > 1000){
+      document.getElementById('copy').disabled=true;
+    }
+  }
+}
+
+//funzione per copiare la formazione
+function Copia(element) {
+  var range, selection, worked;
+
+  element = document.getElementById(element);
+
+  if (document.body.createTextRange) {
+    range = document.body.createTextRange();
+    range.moveToElementText(element);
+    range.select();
+  } else if (window.getSelection) {
+    selection = window.getSelection();
+    range = document.createRange();
+    range.selectNodeContents(element);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+
+  try {
+    document.execCommand('copy');
+  }
+  catch (err) {
+    alert('unable to copy text');
+  }
+}
+</script>
+
+
+
+</body>
+</html>
